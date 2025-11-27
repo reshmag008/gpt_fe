@@ -152,31 +152,31 @@ const PlayerList: React.FC = () => {
                         
                         <div style={cardBodyTextStyle}> 
 
-                        <div style={{display : "grid", textAlign:'center', marginTop : '-232px', width:'60px',marginLeft : '156px'}}>
+                        <div style={{display : "grid", textAlign:'center', marginTop : '-234px', width:'55px',marginLeft : '156px'}}>
                             <span style={{ ...idText }}>#{player.id}</span>
                         </div>
 
-                        <div style={{display : "grid", marginTop : '22px', width:'129px',marginLeft : '204px',transform : 'rotate(10deg)'}}>
+                        <div style={{display : "grid", marginTop : '32px', width:'129px',marginLeft : '208px',transform : 'rotate(10deg)'}}>
                             <span style={{ ...fullNameLabel}}>Player Role</span>
                             <span style={{ ...labelValue}}>{player.player_role}</span>
                         </div>
 
-                         <div style={{display : "grid",  width:'129px',marginLeft : '199px', marginTop:'1px',transform : 'rotate(10deg)'}}>
+                         <div style={{display : "grid",  width:'129px',marginLeft : '203px', marginTop:'2px',transform : 'rotate(10deg)'}}>
                             <span style={{ ...fullNameLabel }}>Batting Style</span>
                                 <span style={{ ...labelValue}}>{player.batting_style}</span>
                             </div>
 
-                         <div style={{display : "grid",width:'129px',marginLeft : '194px',marginTop:'1px',transform : 'rotate(10deg)'}}>
+                         <div style={{display : "grid",width:'129px',marginLeft : '198px',marginTop:'2px',transform : 'rotate(10deg)'}}>
                             <span style={{ ...fullNameLabel}}>Bowling Style</span>
                                 <span style={{ ...labelValue}}>{player.bowling_style}</span>
                             </div>
 
-                        <div style={{display : "grid", width:'129px',marginLeft : '188px',marginTop:'1px',transform : 'rotate(10deg)'}}>
+                        <div style={{display : "grid", width:'129px',marginLeft : '193px',marginTop:'2px',transform : 'rotate(10deg)'}}>
                             <span style={{ ...fullNameLabel}}>Place</span>
                                 <span style={{ ...labelValue }}>{player.location}</span>
                             </div>
 
-                        <div style={{display : "grid",  width:'129px',marginLeft : '183px',marginTop:'1px',transform : 'rotate(10deg)'}}>
+                        <div style={{display : "grid",  width:'129px',marginLeft : '188px',marginTop:'2px',transform : 'rotate(10deg)'}}>
                             <span style={{ ...fullNameLabel}}>Contact</span>
                                 <span style={{ ...labelValue}}>{player.contact_no}</span>
                             </div>
@@ -320,7 +320,7 @@ const fullNameLabel : React.CSSProperties = {
 const idText :  React.CSSProperties = {
     // marginTop: '15px', 
     fontWeight: 'bold', 
-    fontSize: '20px',
+    fontSize: '18px',
     // paddingLeft : '52px',
     color:"maroon",
     fontStyle : 'italic'
@@ -358,7 +358,7 @@ const profileImageStyle : React.CSSProperties = {
     // borderRadius : "10px",
     marginTop:"190px",
     // clipPath: "path('M0 0 H160 Q160 40 200 40 V200 H0 Z')"
-    clipPath: "path('M 0 0 H 157 Q 166 40 200 40 V 225 H 0 Z')"
+    clipPath: "path('M 0 0 H 126 Q 135 40 200 40 V 225 H 0 Z')"
     // borderImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%)",
 //   WebkitMaskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,2) 10%)",
 //   maskImage: "linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%)",
