@@ -734,7 +734,7 @@ const inputContainerStyle: React.CSSProperties = {
   border: "2px solid #ccc",
   borderRadius: "8px",
   margin:'5px',
-  fontSize : '16px'
+  // fontSize : '16px'
   // width : '80%'
 };
 
