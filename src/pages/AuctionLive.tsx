@@ -185,7 +185,7 @@ const AuctionLive: React.FC = () => {
                         {soldPlayer && soldPlayer.team_name &&
                             <div style={{display:'flex', alignItems:'center'}}>
                             <img src={bellGif} alt="logo" style={bellGifStyle} />
-                            <div>Player Sold to {soldPlayer.team_name} for {soldPlayer.amount} points</div>
+                            <div>Player Sold to {soldPlayer.team_name} for {soldPlayer.bid_amount} points</div>
                         </div>
                         }
 
