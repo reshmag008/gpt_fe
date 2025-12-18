@@ -5,7 +5,7 @@ import axios from 'axios'
 export const PlayerService = () => ({
 
     getAllPlayers: (params:any) => {
-        // console.log("teamId== ", params.teamId);
+        console.log("teamId== ", params);
         if(params.teamId){
             return(axios.get(BACKEND_URL + "/players/" + params.teamId))
         }else{

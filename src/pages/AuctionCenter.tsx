@@ -19,7 +19,7 @@ import { io } from "socket.io-client";
 
 const AuctionCenter: React.FC = () => {
 
-  const baseAmount = 1000;
+  const baseAmount = 500;
   const [allTeams, setAllTeams] = useState<any>([]);
   const [bidFlow, setBidFlow] = useState<any>([]);
   const [bidAmount, setBidAmount] = useState<number>(0);
@@ -150,11 +150,11 @@ const AuctionCenter: React.FC = () => {
         let amount;
         let lastBidAmount = bidFlow[bidFlow.length - 1].amount;
         console.log("lastBidAmount=== ", lastBidAmount);
-        // if(lastBidAmount >= 10000){
+        if(lastBidAmount >= 10000){
         amount = bidAmount + 1000
-        // }else{
-        //   amount = bidAmount + 500
-        // }
+        }else{
+          amount = bidAmount + 500
+        }
 
         if (amount > team.max_bid_amount) {
           toast.error('Bid amount larger than max amount')
@@ -349,7 +349,6 @@ const AuctionCenter: React.FC = () => {
         <div style={playerCountStyle}>
           <div id='content-id' style={playerListContainer}>
             <div style={players__card__wrap} >
-
 
               <div style={{ display: "flex" }}>
                 <img  src={`https://storage.googleapis.com/auction-players/${currentBidPlayer.profile_image}`} alt="logo" style={profileImageStyle}/>

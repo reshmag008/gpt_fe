@@ -10,6 +10,7 @@ import playerBg from '../assets/playerBg.jpeg'
 import { BACKEND_URL } from '../constants';
 import PDFCreator from './PDFCreator';
 import InfiniteScroll from "react-infinite-scroll-component";
+import SoldPng from '../assets/sold.png';
 
 
 
@@ -25,6 +26,7 @@ const PlayerList: React.FC = () => {
     const [allTeams, setAllTeams] = useState<any>();
     const [offset, setOffset] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+        const [selectedTeamName, setSelectedTeamName] = useState('')
 
 
     const [items, setItems] = useState<any>([]);
@@ -33,6 +35,13 @@ const PlayerList: React.FC = () => {
   const calledRef = useRef(false);
 
 
+useEffect(() => {
+  if (selectedTeamId) {
+    setSelectedTeamId(selectedTeamId)
+    console.log("Team selected:", selectedTeamId);
+    GetAllPlayers();
+  }
+}, [selectedTeamId]);
 
 
     useEffect(() => {
@@ -47,20 +56,7 @@ const PlayerList: React.FC = () => {
         };
     }, []);
 
-//     const fetchMoreData = async () => {
-//     const res = await fetch(
-//       `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`
-//     );
-//     const data = await res.json();
 
-//     if (data.length === 0) {
-//       setHasMore(false);
-//       return;
-//     }
-
-//     setItems((prev:any) => [...prev, ...data]);
-//     setPage(prev => prev + 1);
-//   };
 
 
 
@@ -70,7 +66,6 @@ const PlayerList: React.FC = () => {
         GetAllPlayers();
         GetAllTeams();
         setPlayers([]);
-        // GetAllPlayers(selectedTeamId);
     },[])
 
     const GetAllTeams = () =>{
@@ -79,10 +74,11 @@ const PlayerList: React.FC = () => {
         })
     }
    const GetAllPlayers = async () => {
-    // const GetAllPlayers = async (teamId:any) => {
+    setPlayers([]);
         setIsLoading(true);
         try {
             let teamId = selectedTeamId;
+            console.log("teamId==GetAllPlayers ",teamId)
             let params = {
                 offset : page,
                 teamId : teamId
@@ -104,6 +100,9 @@ const PlayerList: React.FC = () => {
                 setItems((prev:any) => [...prev, ...playerList]);
                 setPlayers((prev:any) => [...prev, ...playerList]);
                 setPage(prev => prev + 10);
+                if(params.teamId){
+                    setHasMore(false);
+                }
                 }
 
             })
@@ -113,12 +112,20 @@ const PlayerList: React.FC = () => {
         }
     };
 
-    // const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) =>{
-    //     console.log("selectedItem-- ", event.target.value);
-    //     setSelectedTeamId(event.target.value);
-    //     GetAllPlayers();
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) =>{
+        console.log("selectedItem-- ", event.target.value);
+        setSelectedTeamId(event.target.value);
+        allTeams.forEach((element:any) => {
+            if(element.id ==  event.target.value){
+                console.log("elem== ", element.team_name)
+            setSelectedTeamName(element.team_name)
+            }
+            
+        });
+        
+        
 
-    // }
+    }
 
     const downloadPdf = () =>{
         const pdfUrl = "Sample.pdf";
@@ -146,7 +153,7 @@ const PlayerList: React.FC = () => {
         <Header/>
         </div>
         
-        {/* <div style={playerCountStyle}>
+        <div style={playerCountStyle}>
         {isLoading && <Loader type="spinner-cub" bgColor={'#194564'} color={'white'} title={"Loading Players..."} size={50} /> }
             <span style={{marginTop:'20px', color:'white'}}>
             Total Players : {players && players.length? players.length:0} | Unsold : {unSoldCount} | Sold : {soldCount} | Pending : {pendingCount} 
@@ -165,7 +172,7 @@ const PlayerList: React.FC = () => {
              <button onClick={()=>getNextPlayers()}>Next</button>
             </span>
             <PDFCreator playerList={players}/>
-            </div> */}
+            </div>
 
         <InfiniteScroll
       dataLength={items.length}   // ⚠️ mandatory
@@ -224,6 +231,13 @@ const PlayerList: React.FC = () => {
                             </div>
                             
                         </div>
+                        {player.bid_amount && 
+                        <div style={{display : "grid",  width:'129px',marginLeft : '-231px',marginTop:'-56px',transform : 'rotate(10deg)'}}>
+                            <img key={index} src={SoldPng} style={{width:'14rem', height:'10rem'}}/>
+                            <span style={{fontWeight: 'bold',fontSize: '20px',color: 'maroon',marginTop: '-71px',marginLeft: '78px',width: '65px',textAlign: 'center'}}>{player.bid_amount}</span>
+                        </div>
+                        }
+
                     </div>
                     <div style={cardFooter}>
 

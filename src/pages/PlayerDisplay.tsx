@@ -148,11 +148,11 @@ const PlayerDisplay: React.FC = () => {
                 
 
                 <div style={{display:'flex',justifyContent:'center'}}>
-                    <img 
+                    {/* <img 
                     src={BACKEND_URL + '/player_images/' + popUpContent.team_logo}
                     alt="logo" style={{width: "6rem",
                         height: "6rem",
-                        borderRadius: "8px",}} />
+                        borderRadius: "8px",}} /> */}
 
                     <img  src={`https://storage.googleapis.com/auction-players/${popUpContent.team_logo}`} alt="logo" style={{width: "6rem",
                         height: "6rem",
