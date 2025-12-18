@@ -153,7 +153,7 @@ useEffect(() => {
         <Header/>
         </div>
         
-        <div style={playerCountStyle}>
+        {/* <div style={playerCountStyle}>
         {isLoading && <Loader type="spinner-cub" bgColor={'#194564'} color={'white'} title={"Loading Players..."} size={50} /> }
             <span style={{marginTop:'20px', color:'white'}}>
             Total Players : {players && players.length? players.length:0} | Unsold : {unSoldCount} | Sold : {soldCount} | Pending : {pendingCount} 
@@ -172,7 +172,7 @@ useEffect(() => {
              <button onClick={()=>getNextPlayers()}>Next</button>
             </span>
             <PDFCreator playerList={players}/>
-            </div>
+            </div> */}
 
         <InfiniteScroll
       dataLength={items.length}   // ⚠️ mandatory
