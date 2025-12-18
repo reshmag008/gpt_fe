@@ -190,7 +190,7 @@ const AuctionLive: React.FC = () => {
                         }
 
 
-                        <div>
+                        {/* <div> */}
                                   {allSoldPlayers && allSoldPlayers.length>0 &&
                                       <div style={soldPlayerListStyle}>
                                           
@@ -224,7 +224,7 @@ const AuctionLive: React.FC = () => {
                                   }
                                   </div>
 
-        </div>
+        // </div>
     )
 }
 
@@ -435,7 +435,8 @@ const soldPlayerListStyle : React.CSSProperties = {
   border: "1px solid purple",
  boxShadow: "0 2px 4px rgba(0, 0, 0, 1.1)",
   borderRadius: "8px",
-//   width:'30%',
+  width:'324px',
+
   margin: '10px',
   // marginLeft: '-280px'
 }
